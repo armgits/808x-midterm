@@ -1,5 +1,5 @@
 /**
- * @file Manipualtor.hpp
+ * @file Manipulator.hpp
  * @author Abhishekh Reddy (areddy42@umd.edu)
  * @brief Header file for Manipulator library declarations
  * @version 0.1
@@ -20,5 +20,4 @@ class Manipulator {
  private:
   int dof;
   double **dh_params;
-
 };
