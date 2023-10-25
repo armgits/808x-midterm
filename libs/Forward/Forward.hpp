@@ -8,5 +8,15 @@
  * @copyright Copyright (c) 2023 Group 12
  *
  */
- 
+
 #pragma once
+
+#include <vector>
+
+class Forward {
+
+ public:
+
+ private:
+
+};
