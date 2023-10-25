@@ -18,5 +18,9 @@ class Forward {
  public:
 
  private:
-
+  std::vector<double> input_angles_;
+  std::vector<double> output_angles_;
+  std::vector<double> robot_tcp_position_;
+  std::vector<double> coordinate_constraints_;
+  double **dh_params_;
 };
