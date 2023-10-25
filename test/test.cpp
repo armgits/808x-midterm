@@ -3,14 +3,19 @@
 #include "Forward.hpp"
 #include "Inverse.hpp"
 
-TEST(dummy_test, this_should_pass) {
-  EXPECT_EQ(1, 1);
+TEST(inverse_test, compute_function) {
+  auto inverse_solver {std::make_unique<Inverse>()};
+
+  auto result {inverse_solver->inverse({0.0}, {0.0})};
+  std::vector<double> expected {1.0};
+  EXPECT_EQ(result, expected);
 }
 
-// TEST(dummy_test, this_should_pass_too) {
-//   EXPECT_EQ(my_function1(3), 3);
-// }
+TEST(forward_test, compute_function) {
+  auto forward_solver {std::make_unique<Forward>()};
 
-// TEST(dummy_test, this_will_fail) {
-//   EXPECT_EQ(my_function2(3.2), 3.2);
-// }
+  auto result {forward_solver->forward({0.0}, {0.0})};
+  std::vector<double> expected {1.0};
+
+  EXPECT_EQ(result, expected);
+}
