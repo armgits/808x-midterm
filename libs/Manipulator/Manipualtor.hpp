@@ -10,3 +10,11 @@
  */
 
 #pragma once
+
+class Manipulator {
+
+ public:
+
+ private:
+
+};
