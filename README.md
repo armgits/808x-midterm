@@ -39,7 +39,7 @@ Build in either way:
 Normal build
 
 ```bash
-cmake -S ./ -B build/
+cmake --build build/
 ```
 
 Clean build
@@ -47,12 +47,19 @@ Clean build
 ```bash
 cmake --build build/ --clean-first
 ```
+
+Verbose build
+
+```bash
+cmake --build build/ --verbose
+```
+
 To use `bear` just prepend `bear -- ` to either of the above two commands.
 
 For example
 
 ```bash
-bear -- cmake -S ./ -B build/
+bear -- cmake --build build/
 ```
 
 ### Run the program
