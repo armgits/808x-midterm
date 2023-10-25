@@ -15,8 +15,12 @@
 
 class Inverse {
 
- private:
-
  public:
 
+ private:
+  std::vector<double> input_coordinates_;
+  std::vector<double> output_coordinates_;
+  std::vector<double> robot_pose_;
+  std::vector<double> angle_constraints_;
+  double **dh_params_;
 };
