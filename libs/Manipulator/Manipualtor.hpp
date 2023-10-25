@@ -14,6 +14,8 @@
 class Manipulator {
 
  public:
+  Manipulator();
+  void set_dh_params(double **params);
 
  private:
 
