@@ -11,13 +11,35 @@
 
 #pragma once
 
+/**
+ * @brief Class for describing a manipulator
+ *
+ */
 class Manipulator {
-
  public:
+  /**
+   * @brief Constructs a new Manipulator object
+   *
+   */
   Manipulator();
+
+  /**
+   * @brief Sets the DH Parameters that describes the arm
+   *
+   * @param params
+   */
   void set_dh_params(double **params);
 
  private:
-  int dof;
-  double **dh_params;
+  /**
+   * @brief Stores the degrees of freedom of arm
+   *
+   */
+  int dof_;
+
+  /**
+   * @brief Stores the DH Parameters of the arm
+   *
+   */
+  double **dh_params_;
 };
