@@ -1,4 +1,5 @@
 
-add_subdirectory (lib1)
-add_subdirectory (lib2)
+add_subdirectory (Forward)
+add_subdirectory (Inverse)
+add_subdirectory (Manipulator)
 
