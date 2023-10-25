@@ -134,3 +134,6 @@ git checkout <your-development-branch> && git merge main
 Now you can push your changes to your branch and create a pull request to merge your branch with the main branch.
 
 <p align="center"><img src="https://media.tenor.com/-O_9bNdwqngAAAAC/all-is-well-all-izz-well.gif" height="250"></p>
+
+### Phase 1 video overview:
+[Phase 1 Video](https://youtu.be/1Ef1qAf1lvI)
