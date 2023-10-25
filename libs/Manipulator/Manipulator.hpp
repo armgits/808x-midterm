@@ -16,13 +16,12 @@
  *
  */
 class Manipulator {
-
  public:
   /**
    * @brief Constructs a new Manipulator object
    *
    */
-  Manipulator(int dof);
+  Manipulator();
 
   /**
    * @brief Sets the DH Parameters that describes the arm

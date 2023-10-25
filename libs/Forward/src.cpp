@@ -27,7 +27,8 @@ Forward::Forward() : input_angles_{}, output_angles_{}, robot_tcp_position_{},
  * @return std::vector<double>
  */
 std::vector<double> Forward::forward(
-    std::vector<double> joint_angles, std::vector<double> tcp_position) {
+    const std::vector<double>& joint_angles,
+    const std::vector<double>& tcp_position) {
   std::vector<double> dummy_vector {1.0};
   return dummy_vector;
 }

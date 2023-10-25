@@ -18,7 +18,6 @@
  *
  */
 class Inverse {
-
  public:
   /**
    * @brief Constructor for an inverse kinematics solver object
@@ -33,8 +32,8 @@ class Inverse {
    * @param initial_pose
    * @return std::vector<double>
    */
-  std::vector<double> inverse(std::vector<double> target_coordinates,
-                              std::vector<double> initial_pose);
+  std::vector<double> inverse(const std::vector<double>& target_coordinates,
+                              const std::vector<double>& initial_pose);
 
   /**
    * @brief Method to obtain the target coordinates for the end-effector
@@ -48,7 +47,7 @@ class Inverse {
    *
    * @param input_coords
    */
-  void set_input_coordinates(std::vector<double> input_coords);
+  void set_input_coordinates(const std::vector<double>& input_coords);
 
   /**
    * @brief Method to obtain the joint angles describing the robot pose computed
@@ -64,7 +63,7 @@ class Inverse {
    *
    * @param robot_pose
    */
-  void set_robot_pose(std::vector<double> robot_pose);
+  void set_robot_pose(const std::vector<double>& robot_pose);
 
   /**
    * @brief Method to obtain the joint angles constraints set for the arm and
@@ -80,7 +79,7 @@ class Inverse {
    *
    * @param angle_constraints
    */
-  void set_angle_constraint(std::vector<double> angle_constraints);
+  void set_angle_constraint(const std::vector<double>& angle_constraints);
 
   /**
    * @brief Method to obtain the DH Parameters describing the arm for computing

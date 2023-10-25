@@ -12,15 +12,14 @@
 #pragma once
 
 #include <vector>
+#include <utility>
 
 /**
  * @brief Class for computing forward kinematics of an articulated arm
  *
  */
 class Forward {
-
  public:
-
   /**
    * @brief Constructor for forward kinematics solver object
    *
@@ -35,8 +34,8 @@ class Forward {
    * @param tcp_position
    * @return std::vector<double>
    */
-  std::vector<double> forward(std::vector<double> joint_angles,
-                              std::vector<double> tcp_position);
+  std::vector<double> forward(const std::vector<double>& joint_angles,
+                              const std::vector<double>& tcp_position);
 
   /**
    * @brief Method to obtain input angles given to forward kinematics solver
@@ -50,7 +49,7 @@ class Forward {
    *
    * @param input_angles
    */
-  void set_input_angles(std::vector<double> input_angles);
+  void set_input_angles(const std::vector<double>& input_angles);
 
   /**
    * @brief Method to obtain the end-effector position calculated by forward
@@ -66,7 +65,7 @@ class Forward {
    *
    * @param tcp_position
    */
-  void set_tcp_position(std::vector<double> tcp_position);
+  void set_tcp_position(const std::vector<double>& tcp_position);
 
   /**
    * @brief Obtains the constraints set to the end-effector coordinate computed
@@ -82,7 +81,8 @@ class Forward {
    *
    * @param coordinate_constraint
    */
-  void set_coordinate_constraint(std::vector<double> coordinate_constraint);
+  void set_coordinate_constraint(
+      const std::vector<double>& coordinate_constraint);
 
   /**
    * @brief Obtains the DH parameters set for the forward kinematics solver
@@ -103,7 +103,7 @@ class Forward {
    *
    * @param angle_constraint
    */
-  void set_angle_constraint(std::vector<double> angle_constraint);
+  void set_angle_constraint(const std::vector<double>& angle_constraint);
 
  private:
   /**
