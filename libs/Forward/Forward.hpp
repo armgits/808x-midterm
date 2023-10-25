@@ -16,6 +16,18 @@
 class Forward {
 
  public:
+  Forward();
+  std::vector<double> forward(std::vector<double> joint_angles,
+                              std::vector<double> tcp_position);
+  std::vector<double> get_input_angles();
+  void set_input_angles(std::vector<double> input_angles);
+  std::vector<double> get_tcp_position();
+  void set_tcp_position(std::vector<double> tcp_position);
+  std::vector<double> get_coordinate_constraint();
+  void set_coordinate_constraint(std::vector<double> coordinate_constraint);
+  double **get_dh_params();
+  std::vector<double> get_angle_constraint();
+  void set_angle_constraint(std::vector<double> angle_constraint);
 
  private:
   std::vector<double> input_angles_;
