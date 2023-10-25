@@ -10,3 +10,13 @@
  */
 
 #pragma once
+
+#include <vector>
+
+class Inverse {
+
+ private:
+
+ public:
+
+};
