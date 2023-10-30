@@ -11,3 +11,7 @@ target_include_directories(klib-forward PUBLIC
   # list of directories:
   .
   )
+
+target_link_libraries(klib-forward PUBLIC
+  klib-datatypes
+  )
