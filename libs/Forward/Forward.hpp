@@ -13,6 +13,7 @@
 
 #include <vector>
 #include <utility>
+#include <iostream>
 
 /**
  * @brief Class for computing forward kinematics of an articulated arm
@@ -25,6 +26,12 @@ class Forward {
    *
    */
   Forward();
+
+  struct angle_constraint_
+  {
+    double min_angle_;
+    double max_angle_;
+  };
 
   /**
    * @brief Method to compute the forward kinematics that outputs coordinates of
@@ -96,14 +103,14 @@ class Forward {
    *
    * @return std::vector<double>
    */
-  std::vector<double> get_angle_constraint();
+  std::vector<angle_constraint_> get_angle_constraint();
 
   /**
    * @brief Set the angle constraint object
    *
    * @param angle_constraint
    */
-  void set_angle_constraint(const std::vector<double>& angle_constraint);
+  void set_angle_constraint(const std::vector<angle_constraint_>& angle_constraint);
 
  private:
   /**
@@ -129,6 +136,13 @@ class Forward {
    *
    */
   std::vector<double> coordinate_constraints_;
+
+  /**
+   * @brief Stores the constraints for minimum and maximum angles that each joint can have. Index 0 corresponds to the first joint and so on.
+   * 
+   */
+
+  std::vector<angle_constraint_> angle_constraints_;
 
   /**
    * @brief Stores the DH Parameters that describes the arm for forward kinematics

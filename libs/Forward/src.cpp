@@ -10,6 +10,7 @@
  */
 
 #include "Forward.hpp"
+#include <list>
 
 /**
  * @brief Constructor for forward kinematics class. Initializes attributes to zero.
@@ -31,4 +32,29 @@ std::vector<double> Forward::forward(
     const std::vector<double>& tcp_position) {
   std::vector<double> dummy_vector {1.0};
   return dummy_vector;
+}
+
+/**
+ * @brief Obtain the constraints set for the joint angles
+ * 
+ * @return std::vector<double> 
+ */
+std::vector<Forward::angle_constraint_> Forward::get_angle_constraint()
+{
+  return angle_constraints_;
+}
+
+void Forward::set_angle_constraint(const std::vector<Forward::angle_constraint_> &angle_constraint)
+{
+  // check validity of each joint angle constraint
+  for(int i = 0; i < angle_constraint.size(); i++)
+  {
+    if(angle_constraint[i].min_angle_ > angle_constraint[i].max_angle_)
+    {
+      std::cout<< "Angle constraint invalid. Min angle should be less than max angle" << std::endl;
+      return;
+    } 
+  }
+  angle_constraints_ = angle_constraint;
+  std::cout<< "Angle constraints set successfully!" << std::endl;
 }
