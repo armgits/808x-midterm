@@ -12,7 +12,7 @@
 
 #pragma once
 
-namespace kplib {
+namespace klib {
 
 struct Point {
   float x {0.0};
