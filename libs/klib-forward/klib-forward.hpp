@@ -1,6 +1,7 @@
 /**
- * @file Forward.hpp
+ * @file klib-forward.hpp
  * @author Abhishekh Reddy (areddy42@umd.edu)
+ * @author Mudit Singal (msingal@umd.edu)
  * @brief Header file for Forward kinematics library declarations
  * @version 0.1
  * @date 2023-10-20
@@ -14,6 +15,7 @@
 #include <vector>
 #include <utility>
 #include <iostream>
+#include "klib-datatypes.hpp"
 
 /**
  * @brief Class for computing forward kinematics of an articulated arm
@@ -126,10 +128,10 @@ class Forward {
   std::vector<double> output_angles_;
 
   /**
-   * @brief Stores the end-effector position of the arm
+   * @brief Stores the end-effector position and orientation of the arm
    *
    */
-  std::vector<double> robot_tcp_position_;
+  std::vector<double> robot_tcp_pose_;
 
   /**
    * @brief Stores the constraints set for the end-effector coordinates

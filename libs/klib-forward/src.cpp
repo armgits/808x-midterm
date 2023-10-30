@@ -1,6 +1,7 @@
 /**
  * @file src.cpp
  * @author Abhishekh Reddy (areddy42@umd.edu)
+ * @author Mudit Singal (msingal@umd.edu)
  * @brief Source file for Forward kinematics library definitions
  * @version 0.1
  * @date 2023-10-20
@@ -9,7 +10,7 @@
  *
  */
 
-#include "Forward.hpp"
+#include "klib-forward.hpp"
 #include <list>
 
 /**
