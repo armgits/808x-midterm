@@ -17,7 +17,7 @@
  * @brief Constructor for forward kinematics class. Initializes attributes to zero.
  *
  */
-Forward::Forward() : input_angles_{}, output_angles_{}, robot_tcp_position_{},
+Forward::Forward() : input_angles_{}, output_angles_{}, robot_tcp_pose_{},
                      coordinate_constraints_{}, dh_params_{} {}
 
 /**
@@ -37,8 +37,8 @@ std::vector<double> Forward::forward(
 
 /**
  * @brief Obtain the constraints set for the joint angles
- * 
- * @return std::vector<double> 
+ *
+ * @return std::vector<double>
  */
 std::vector<Forward::angle_constraint_> Forward::get_angle_constraint()
 {
@@ -54,8 +54,23 @@ void Forward::set_angle_constraint(const std::vector<Forward::angle_constraint_>
     {
       std::cout<< "Angle constraint invalid. Min angle should be less than max angle" << std::endl;
       return;
-    } 
+    }
   }
   angle_constraints_ = angle_constraint;
   std::cout<< "Angle constraints set successfully!" << std::endl;
 }
+
+std::vector<double> Forward::get_tcp_position()
+{
+  std::vector<double> dummy2;
+  return dummy2;
+}
+
+
+  /**
+   * @brief Method to manually override end-effector position computed from
+   *        joint angles
+   *
+   * @param tcp_position
+   */
+  void set_tcp_position(const std::vector<double>& tcp_position);
