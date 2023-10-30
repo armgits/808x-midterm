@@ -11,3 +11,9 @@ target_include_directories(klib-inverse PUBLIC
   # list of directories:
   .
   )
+
+# Any dependent libraires needed to build this target.
+target_link_libraries(klib-inverse PUBLIC
+  # list of libraries
+  klib-datatypes
+  )
