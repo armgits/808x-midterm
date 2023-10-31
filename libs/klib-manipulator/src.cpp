@@ -93,4 +93,23 @@ std::vector<double> Manipulator::get_tcp_position() {
   return tcpPosition;
 }
 
+/**
+ * @brief Method definition for get_dh_params
+ *
+ * @return klib::DHParameters6R dh_param obejct
+ */
 klib::DHParameters6R Manipulator::get_dh_params() { return dh_params_; }
+
+/**
+ * @brief Method definition for set_joint_angles
+ *
+ * @param joint_angles Desired joint angles
+ */
+void Manipulator::set_joint_angles(const std::vector<double> joint_angles) {
+  robot_joint_angles_.theta1 = joint_angles[0];
+  robot_joint_angles_.theta2 = joint_angles[1];
+  robot_joint_angles_.theta3 = joint_angles[2];
+  robot_joint_angles_.theta4 = joint_angles[3];
+  robot_joint_angles_.theta5 = joint_angles[4];
+  robot_joint_angles_.theta6 = joint_angles[5];
+}
