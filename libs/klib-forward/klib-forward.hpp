@@ -44,8 +44,7 @@ class Forward {
    * @param tcp_position
    * @return std::vector<double>
    */
-  std::vector<double> forward(const std::vector<double>& joint_angles,
-                              const std::vector<double>& tcp_position);
+ klib::Pose forward(const std::vector<double>& joint_angles);
 
   /**
    * @brief Method to obtain input angles given to forward kinematics solver
@@ -153,3 +152,5 @@ class Forward {
    */
   double **dh_params_;
 };
+
+Eigen::Matrix4d compute_DH_matrix(double a, double alpha, double d, double theta);

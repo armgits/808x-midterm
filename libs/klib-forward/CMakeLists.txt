@@ -19,6 +19,7 @@ target_include_directories(klib-forward PUBLIC
 
 target_link_libraries(klib-forward PUBLIC
   klib-datatypes
+  klib-manipulator
   )
 
 
