@@ -89,6 +89,9 @@ std::vector<double> Manipulator::get_tcp_position() {
   tcpPosition.push_back(robot_tcp_pose_.x);
   tcpPosition.push_back(robot_tcp_pose_.y);
   tcpPosition.push_back(robot_tcp_pose_.z);
+  tcpPosition.push_back(robot_tcp_pose_.wx);
+  tcpPosition.push_back(robot_tcp_pose_.wy);
+  tcpPosition.push_back(robot_tcp_pose_.wz);
 
   return tcpPosition;
 }

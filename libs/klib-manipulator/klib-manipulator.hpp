@@ -92,5 +92,5 @@ private:
    * @brief Stores current tcp position of the arm
    *
    */
-  klib::Point robot_tcp_pose_;
+  klib::Pose robot_tcp_pose_;
 };
