@@ -11,3 +11,7 @@ target_include_directories(klib-manipulator PUBLIC
   # list of directories:
   .
   )
+
+target_link_libraries(klib-manipulator PUBLIC
+  klib-datatypes
+  )
