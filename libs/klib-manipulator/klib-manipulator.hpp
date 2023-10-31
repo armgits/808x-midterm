@@ -60,7 +60,7 @@ public:
    * @brief Gets the current tcp position of the arm
    *
    */
-  std::vector<double> get_tcp_position();
+  klib::Pose get_tcp_position();
 
   /**
    * @brief Sets the current tcp positions of the arm

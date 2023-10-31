@@ -70,20 +70,9 @@ klib::ArmPose6R Manipulator::get_joint_angles() { return robot_joint_angles_; }
 /**
  * @brief Method definition for get_tcp_position
  *
- * @return std::vector<double> Vector Array representing current tcp position
+ * @return klib::Pose Struct representing current tcp position
  */
-std::vector<double> Manipulator::get_tcp_position() {
-  std::vector<double> tcpPosition;
-
-  tcpPosition.push_back(robot_tcp_pose_.x);
-  tcpPosition.push_back(robot_tcp_pose_.y);
-  tcpPosition.push_back(robot_tcp_pose_.z);
-  tcpPosition.push_back(robot_tcp_pose_.wx);
-  tcpPosition.push_back(robot_tcp_pose_.wy);
-  tcpPosition.push_back(robot_tcp_pose_.wz);
-
-  return tcpPosition;
-}
+klib::Pose Manipulator::get_tcp_position() { return robot_tcp_pose_; }
 
 /**
  * @brief Method definition for get_dh_params
