@@ -63,20 +63,9 @@ void Manipulator::set_dh_params(const double dhArray[6][4]) {
 /**
  * @brief Method definition for get_joint_angles
  *
- * @return std::vector<double> Vector Array representing current joint angles
+ * @return klib::ArmPose6R Struct representing current joint angles
  */
-std::vector<double> Manipulator::get_joint_angles() {
-  std::vector<double> jointAngles;
-
-  jointAngles.push_back(robot_joint_angles_.theta1);
-  jointAngles.push_back(robot_joint_angles_.theta2);
-  jointAngles.push_back(robot_joint_angles_.theta3);
-  jointAngles.push_back(robot_joint_angles_.theta4);
-  jointAngles.push_back(robot_joint_angles_.theta5);
-  jointAngles.push_back(robot_joint_angles_.theta6);
-
-  return jointAngles;
-}
+klib::ArmPose6R Manipulator::get_joint_angles() { return robot_joint_angles_; }
 
 /**
  * @brief Method definition for get_tcp_position
@@ -116,3 +105,5 @@ void Manipulator::set_joint_angles(const std::vector<double> joint_angles) {
   robot_joint_angles_.theta5 = joint_angles[4];
   robot_joint_angles_.theta6 = joint_angles[5];
 }
+
+void Manipulator::set_tcp_position(const std::vector<double> tcpPosition) {}

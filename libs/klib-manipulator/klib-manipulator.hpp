@@ -47,7 +47,7 @@ public:
    * @brief Gets the current joint positions of the arm
    *
    */
-  std::vector<double> get_joint_angles();
+  klib::ArmPose6R get_joint_angles();
 
   /**
    * @brief Sets the current joint positions of the arm
@@ -65,7 +65,7 @@ public:
   /**
    * @brief Sets the current tcp positions of the arm
    *
-   * @param tcp_position desired joint angles
+   * @param tcp_position desired tcp position
    */
   void set_tcp_position(const std::vector<double> &tcp_position);
 
