@@ -16,6 +16,7 @@
 #include <utility>
 #include <iostream>
 #include "klib-datatypes.hpp"
+#include <Eigen/Dense>
 
 /**
  * @brief Class for computing forward kinematics of an articulated arm
@@ -66,7 +67,7 @@ class Forward {
    *
    * @return std::vector<double>
    */
-  std::vector<double> get_tcp_position();
+  std::vector<double> get_tcp_pose();
 
   /**
    * @brief Method to manually override end-effector position computed from
@@ -141,7 +142,7 @@ class Forward {
 
   /**
    * @brief Stores the constraints for minimum and maximum angles that each joint can have. Index 0 corresponds to the first joint and so on.
-   * 
+   *
    */
 
   std::vector<angle_constraint_> angle_constraints_;

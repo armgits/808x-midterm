@@ -31,6 +31,8 @@ Forward::Forward() : input_angles_{}, output_angles_{}, robot_tcp_pose_{},
 std::vector<double> Forward::forward(
     const std::vector<double>& joint_angles,
     const std::vector<double>& tcp_position) {
+
+
   std::vector<double> dummy_vector {1.0};
   return dummy_vector;
 }
@@ -59,18 +61,3 @@ void Forward::set_angle_constraint(const std::vector<Forward::angle_constraint_>
   angle_constraints_ = angle_constraint;
   std::cout<< "Angle constraints set successfully!" << std::endl;
 }
-
-std::vector<double> Forward::get_tcp_position()
-{
-  std::vector<double> dummy2;
-  return dummy2;
-}
-
-
-  /**
-   * @brief Method to manually override end-effector position computed from
-   *        joint angles
-   *
-   * @param tcp_position
-   */
-  void set_tcp_position(const std::vector<double>& tcp_position);
