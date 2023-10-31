@@ -37,6 +37,13 @@ public:
   void set_dh_params(const double params[6][4]);
 
   /**
+   * @brief Get the dh_params object
+   *
+   * @return klib::DHParameters6R object
+   */
+  klib::DHParameters6R get_dh_params();
+
+  /**
    * @brief Gets the current joint positions of the arm
    *
    */

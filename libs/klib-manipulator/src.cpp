@@ -92,3 +92,5 @@ std::vector<double> Manipulator::get_tcp_position() {
 
   return tcpPosition;
 }
+
+klib::DHParameters6R Manipulator::get_dh_params() { return dh_params_; }
