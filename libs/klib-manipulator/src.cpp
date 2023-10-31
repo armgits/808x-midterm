@@ -94,5 +94,16 @@ void Manipulator::set_joint_angles(const std::vector<double> joint_angles) {
   robot_joint_angles_.theta5 = joint_angles[4];
   robot_joint_angles_.theta6 = joint_angles[5];
 }
-
-void Manipulator::set_tcp_position(const std::vector<double> tcpPosition) {}
+/**
+ * @brief Method definition for set_tcp_position
+ *
+ * @param tcpPosition Desired tcp position
+ */
+void Manipulator::set_tcp_position(const std::vector<double> tcpPosition) {
+  robot_tcp_pose_.x = tcpPosition[0];
+  robot_tcp_pose_.y = tcpPosition[1];
+  robot_tcp_pose_.z = tcpPosition[2];
+  robot_tcp_pose_.wx = tcpPosition[3];
+  robot_tcp_pose_.wy = tcpPosition[4];
+  robot_tcp_pose_.wz = tcpPosition[5];
+}
