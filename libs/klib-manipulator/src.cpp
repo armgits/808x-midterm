@@ -86,7 +86,7 @@ klib::DHParameters6R Manipulator::get_dh_params() { return dh_params_; }
  *
  * @param joint_angles Desired joint angles
  */
-void Manipulator::set_joint_angles(const std::vector<double> joint_angles) {
+void Manipulator::set_joint_angles(const std::vector<double> &joint_angles) {
   robot_joint_angles_.theta1 = joint_angles[0];
   robot_joint_angles_.theta2 = joint_angles[1];
   robot_joint_angles_.theta3 = joint_angles[2];
@@ -99,7 +99,7 @@ void Manipulator::set_joint_angles(const std::vector<double> joint_angles) {
  *
  * @param tcpPosition Desired tcp position
  */
-void Manipulator::set_tcp_position(const std::vector<double> tcpPosition) {
+void Manipulator::set_tcp_position(const std::vector<double> &tcpPosition) {
   robot_tcp_pose_.x = tcpPosition[0];
   robot_tcp_pose_.y = tcpPosition[1];
   robot_tcp_pose_.z = tcpPosition[2];
