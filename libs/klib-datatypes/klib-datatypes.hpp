@@ -3,7 +3,7 @@
  * @author Abhishekh Reddy (areddy42@umd.edu)
  * @author Mudit Singal (msingal@umd.edu)
  * @brief Header-only library for custom datatypes for kinematics and planning
- * @version 0.1
+ * @version 0.2
  * @date 2023-10-20
  *
  * @copyright Copyright (c) 2023 Group 12
@@ -30,21 +30,21 @@ struct JointParameter {
 };
 
 struct DHParameters6R {
-  JointParameter joint1_parameter;
-  JointParameter joint2_parameter;
-  JointParameter joint3_parameter;
-  JointParameter joint4_parameter;
-  JointParameter joint5_parameter;
-  JointParameter joint6_parameter;
+  JointParameter joint1;
+  JointParameter joint2;
+  JointParameter joint3;
+  JointParameter joint4;
+  JointParameter joint5;
+  JointParameter joint6;
 };
 
 struct ArmPose6R {
-  float joint1_angle {0.0};
-  float joint2_angle {0.0};
-  float joint3_angle {0.0};
-  float joint4_angle {0.0};
-  float joint5_angle {0.0};
-  float joint6_angle {0.0};
+  float theta1 {0.0};
+  float theta2 {0.0};
+  float theta3 {0.0};
+  float theta4 {0.0};
+  float theta5 {0.0};
+  float theta6 {0.0};
 };
 
 }
