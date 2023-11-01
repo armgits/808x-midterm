@@ -90,25 +90,25 @@ Eigen::Matrix<double, 6, 6> klib::Inverse::ComputeJacobian(
   Eigen::Matrix<double, 3, 1> Z5 {T5(Eigen::seqN(0, 3), Eigen::last-1)};
 
   Eigen::Matrix<double, 6, 1> J1;
-  J1 << Z0.cross(O6 - O0), Z0;
+  J1 << Z0.cross(O6 - O0), Z0; // cppcheck-suppress constStatement
 
   Eigen::Matrix<double, 6, 1> J2;
-  J2 << Z1.cross(O6 - O1), Z1;
+  J2 << Z1.cross(O6 - O1), Z1; // cppcheck-suppress constStatement
 
   Eigen::Matrix<double, 6, 1> J3;
-  J3 << Z2.cross(O6 - O2), Z2;
+  J3 << Z2.cross(O6 - O2), Z2; // cppcheck-suppress constStatement
 
   Eigen::Matrix<double, 6, 1> J4;
-  J4 << Z3.cross(O6 - O3), Z3;
+  J4 << Z3.cross(O6 - O3), Z3; // cppcheck-suppress constStatement
 
   Eigen::Matrix<double, 6, 1> J5;
-  J5 << Z4.cross(O6 - O4), Z4;
+  J5 << Z4.cross(O6 - O4), Z4; // cppcheck-suppress constStatement
 
   Eigen::Matrix<double, 6, 1> J6;
-  J6 << Z5.cross(O6 - O5), Z5;
+  J6 << Z5.cross(O6 - O5), Z5; // cppcheck-suppress constStatement
 
   Eigen::Matrix<double, 6, 6> J;
-  J << J1, J2, J3, J4, J5, J6;
+  J << J1, J2, J3, J4, J5, J6; // cppcheck-suppress constStatement
 
   return J;
 }
@@ -133,7 +133,7 @@ klib::ArmPose6R klib::Inverse::Compute(const klib::Pose &target_tool_pose,
 
     Eigen::Matrix<double, 6, 1> deltaToolPoseVector;
     deltaToolPoseVector << deltaToolPose.x, deltaToolPose.y, deltaToolPose.z, 0,
-                           0, 0;
+                           0, 0; // cppcheck-suppress constStatement
 
     Eigen::Matrix<double, 6, 1> deltaArmPose {J_inv * deltaToolPoseVector};
 

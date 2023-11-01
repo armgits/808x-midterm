@@ -27,7 +27,7 @@ class Inverse {
    * @brief Constructor for an inverse kinematics solver object
    *
    */
-  Inverse(const klib::DHParameters6R arm_description_);
+  explicit Inverse(const klib::DHParameters6R arm_description_);
 
   /**
    * @brief Method to compute the inverse kinematics for a given end-effector
