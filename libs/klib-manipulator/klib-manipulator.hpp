@@ -54,7 +54,7 @@ public:
    *
    * @param joint_angles desired joint angles
    */
-  void set_joint_angles(const std::vector<double> &joint_angles);
+  bool set_joint_angles(const std::vector<double> &joint_angles);
 
   /**
    * @brief Gets the current tcp position of the arm
@@ -67,7 +67,7 @@ public:
    *
    * @param tcp_position desired tcp position
    */
-  void set_tcp_position(const std::vector<double> &tcp_position);
+  bool set_tcp_position(const std::vector<double> &tcp_position);
 
 private:
   /**
