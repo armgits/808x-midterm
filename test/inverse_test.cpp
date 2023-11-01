@@ -78,7 +78,8 @@ TEST(inverse_test, compute_method_test2) {
   klib::ArmPose6R arm_pose {0, -1.5708, 1.5708, -1.5708, 1.5708, -0.0174533};
 
   auto result_arm_pose {test_inverse_solver->Compute(target_pose, arm_pose)};
-  klib::ArmPose6R expected_arm_pose {-0.815, -2.267, 2.812, -4.717, 0.159, -0.01};
+  klib::ArmPose6R expected_arm_pose {-0.815, -2.267, 2.812, -4.717,
+                                                        0.159, -0.01};
 
   ASSERT_NEAR(result_arm_pose.theta1, expected_arm_pose.theta1, 0.1);
   ASSERT_NEAR(result_arm_pose.theta2, expected_arm_pose.theta2, 0.1);
