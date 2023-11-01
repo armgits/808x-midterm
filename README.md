@@ -70,7 +70,7 @@ bear -- cmake --build build/
 
 ### Run the program
 
-TODO
+./build/app/klib-demo
 
 ### Test the program
 
