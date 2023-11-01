@@ -7,7 +7,9 @@ find_package(Eigen3 REQUIRED)
 add_executable(cpp-test
   # list of source cpp files:
   main.cpp
-  test.cpp
+  manipulator_test.cpp
+  forward_test.cpp
+  inverse_test.cpp
   )
 
 # Any include directories needed to build this target.
