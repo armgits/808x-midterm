@@ -12,17 +12,18 @@
 
 #pragma once
 
-#include "klib-datatypes.hpp"
 #include <iostream>
 #include <utility>
 #include <vector>
+
+#include "klib-datatypes.hpp"
 
 /**
  * @brief Class for describing a manipulator
  *
  */
 class Manipulator {
-public:
+ public:
   /**
    * @brief Constructs a new Manipulator object
    *
@@ -69,7 +70,7 @@ public:
    */
   bool set_tcp_position(const std::vector<double> &tcp_position);
 
-private:
+ private:
   /**
    * @brief Stores the degrees of freedom of arm
    *
