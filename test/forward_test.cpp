@@ -17,6 +17,9 @@
 
 const double pi = 3.141592;
 const double epsilon = 0.5;
+double dhp[6][4] = {{0.1625, 0.0, 0.5 * pi, 0.0},  {0.0, -0.425, 0.0, 0.0},
+                    {0.0, -0.3922, 0.0, 0.0},      {0.1333, 0.0, 0.5 * pi, 0.0},
+                    {0.0997, 0.0, -0.5 * pi, 0.0}, {0.0996, 0.0, 0.0, 0.0}};
 
 /**
  * @brief Test case 1 for Forward method
@@ -25,6 +28,9 @@ const double epsilon = 0.5;
 TEST(forward_kinematics_test_1, should_return_tcp_pose_1) {
   // Create an instance of manipulator class
   Manipulator manipulator;
+
+  manipulator.set_dh_params(dhp);
+
   Forward f1;
 
   // Define the expected end effector pose for a set of known joint angles
@@ -33,7 +39,7 @@ TEST(forward_kinematics_test_1, should_return_tcp_pose_1) {
   klib::Pose expected_pose{0.49309, -0.13026, 0.48946, 0.05, 0.05, 0.012};
 
   // Call the forward kinematics method to get the actual end effector pose
-  klib::Pose tcp_pose = f1.forward(joint_angles);
+  klib::Pose tcp_pose = f1.forward(joint_angles, manipulator);
 
   // Check if the actual pose is equal to the expected pose within a tolerance
   EXPECT_NEAR(tcp_pose.x, expected_pose.x, epsilon);
@@ -51,6 +57,9 @@ TEST(forward_kinematics_test_1, should_return_tcp_pose_1) {
 TEST(forward_kinematics_test_2, should_return_tcp_pose_2) {
   // Create an instance of manipulator class
   Manipulator manipulator;
+
+  manipulator.set_dh_params(dhp);
+
   Forward f1;
 
   // Define the expected end effector pose for a set of known joint angles
@@ -59,7 +68,7 @@ TEST(forward_kinematics_test_2, should_return_tcp_pose_2) {
   klib::Pose expected_pose{0.13150, 0.492, 0.48944, 0.05, -0.002, 0.015};
 
   // Call the forward kinematics method to get the actual end effector pose
-  klib::Pose tcp_pose = f1.forward(joint_angles);
+  klib::Pose tcp_pose = f1.forward(joint_angles, manipulator);
 
   // Check if the actual pose is equal to the expected pose within a tolerance
   EXPECT_NEAR(tcp_pose.x, expected_pose.x, epsilon);
