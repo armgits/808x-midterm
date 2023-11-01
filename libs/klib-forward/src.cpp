@@ -36,7 +36,7 @@ Eigen::Matrix4d compute_DH_matrix(double a, double alpha, double d, double theta
  * @param joint_angles
  * @return klib::Pose
  */
-klib::Pose forward(const std::vector<double>& joint_angles) {
+klib::Pose Forward::forward(const std::vector<double>& joint_angles) {
   // Instantiating Manipulator object, DH parameters object, and dh_matrix object for use in the function
   Manipulator m1;
   klib::DHParameters6R m1_dh_params;
