@@ -10,11 +10,12 @@
  *
  */
 
-#include "klib-datatypes.hpp"
-#include "klib-manipulator.hpp"
 #include <iostream>
 #include <utility>
 #include <vector>
+
+#include "klib-datatypes.hpp"
+#include "klib-manipulator.hpp"
 
 /**
  * @brief Construct a new Manipulator:: Manipulator object
