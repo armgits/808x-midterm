@@ -18,7 +18,7 @@
 const double pi = 3.141592;
 const double epsilon = 0.5;
 
-TEST(forward_kinematics_test_1, should_return_tcp_pose) {
+TEST(forward_kinematics_test_1, should_return_tcp_pose_1) {
   // Create an instance of manipulator class
   Manipulator manipulator;
   Forward f1;
@@ -40,7 +40,7 @@ TEST(forward_kinematics_test_1, should_return_tcp_pose) {
   EXPECT_NEAR(tcp_pose.wz, expected_pose.wz, epsilon);
 }
 
-TEST(forward_kinematics_test_1, should_return_tcp_pose) {
+TEST(forward_kinematics_test_2, should_return_tcp_pose_2) {
   // Create an instance of manipulator class
   Manipulator manipulator;
   Forward f1;
