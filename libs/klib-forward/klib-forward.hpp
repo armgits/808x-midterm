@@ -45,7 +45,7 @@ class Forward {
    * @param tcp_position
    * @return std::vector<double>
    */
- klib::Pose forward(const std::vector<double>& joint_angles);
+ klib::Pose forward(const std::vector<double>& joint_angles, Manipulator m_obj);
 
 
 };
