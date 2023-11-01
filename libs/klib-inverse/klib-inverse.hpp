@@ -11,8 +11,8 @@
 
 #pragma once
 
-#include <vector>
 #include <Eigen/Dense>
+#include <vector>
 
 #include "klib-datatypes.hpp"
 
@@ -65,7 +65,8 @@ class Inverse {
    * @param current_pose
    * @return Eigen::Matrix<double, 6, 6>
    */
-  Eigen::Matrix<double, 6, 6> ComputeJacobian(const klib::ArmPose6R &current_arm_pose);
+  Eigen::Matrix<double, 6, 6> ComputeJacobian(
+      const klib::ArmPose6R &current_arm_pose);
 
   /**
    * @brief Stores the target coordinates for the end-effector
@@ -86,4 +87,4 @@ class Inverse {
   klib::DHParameters6R dh_parameters_;
 };
 
-}
+}  // namespace klib
