@@ -176,8 +176,18 @@ struct DHParameters6R {
   DHParameters6R(JointParameter joint1_i, JointParameter joint2_i,
                  JointParameter joint3_i, JointParameter joint4_i,
                  JointParameter joint5_i, JointParameter joint6_i)
-    : joint1{joint2_i}, joint2{joint2_i}, joint3{joint3_i}, joint4{joint4_i},
-      joint5{joint5_i}, joint6{joint6_i} {}
+      : joint1{joint2_i}, joint2{joint2_i}, joint3{joint3_i}, joint4{joint4_i},
+        joint5{joint5_i}, joint6{joint6_i} {}
+
+  /**
+   * @brief Constructor for passing a copy struct during instantiation
+   *
+   * @param dh_parameters_i
+   */
+  DHParameters6R(const DHParameters6R& dh_parameters_i)
+      : joint1{dh_parameters_i.joint1}, joint2{dh_parameters_i.joint2},
+        joint3{dh_parameters_i.joint3}, joint4{dh_parameters_i.joint4},
+        joint5{dh_parameters_i.joint5}, joint6{dh_parameters_i.joint6} {}
 };
 
 /**
@@ -221,6 +231,17 @@ struct ArmPose6R {
   ArmPose6R(const ArmPose6R& arm_pose) : theta1{arm_pose.theta1},
       theta2{arm_pose.theta2}, theta3{arm_pose.theta3}, theta4{arm_pose.theta4},
       theta5{arm_pose.theta5}, theta6{arm_pose.theta6} {}
+
+  bool operator==(const ArmPose6R& arm_pose_compare) {
+    if (theta1 == arm_pose_compare.theta1 && theta2 == arm_pose_compare.theta2 &&
+        theta3 == arm_pose_compare.theta3 && theta4 == arm_pose_compare.theta4 &&
+        theta5 == arm_pose_compare.theta5 && theta6 == arm_pose_compare.theta6) {
+          return true;
+        }
+
+    else
+      return false;
+  }
 };
 
 }
