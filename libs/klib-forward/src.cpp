@@ -26,7 +26,7 @@ Eigen::Matrix4d compute_DH_matrix(double a, double alpha, double d, double theta
     dh_matrix << cos(theta), -sin(theta) * cos(alpha), sin(theta) * sin(alpha), a * cos(theta),
                  sin(theta), cos(theta) * cos(alpha), -cos(theta) * sin(alpha), a * sin(theta),
                  0, sin(alpha), cos(alpha), d,
-                 0, 0, 0, 1;
+                 0, 0, 0, 1; // cppcheck-suppress constStatement
     return dh_matrix;
 }
 
