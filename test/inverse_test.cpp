@@ -43,14 +43,6 @@ TEST(inverse_test, compute_method_test1) {
   auto result_arm_pose {test_inverse_solver->Compute(target_pose, arm_pose)};
   klib::ArmPose6R expected_arm_pose {-1.53, -5.44, 0.699, -3.61, -0.10, -0.01};
 
-  std::cout << "Result arm pose: " << std::endl;
-  std::cout << "  Joint1: " << result_arm_pose.theta1 << std::endl;
-  std::cout << "  Joint2: " << result_arm_pose.theta2 << std::endl;
-  std::cout << "  Joint3: " << result_arm_pose.theta3 << std::endl;
-  std::cout << "  Joint4: " << result_arm_pose.theta4 << std::endl;
-  std::cout << "  Joint5: " << result_arm_pose.theta5 << std::endl;
-  std::cout << "  Joint6: " << result_arm_pose.theta6 << std::endl;
-
   ASSERT_NEAR(result_arm_pose.theta1, expected_arm_pose.theta1, 0.1);
   ASSERT_NEAR(result_arm_pose.theta2, expected_arm_pose.theta2, 0.1);
   ASSERT_NEAR(result_arm_pose.theta3, expected_arm_pose.theta3, 0.1);
@@ -87,14 +79,6 @@ TEST(inverse_test, compute_method_test2) {
 
   auto result_arm_pose {test_inverse_solver->Compute(target_pose, arm_pose)};
   klib::ArmPose6R expected_arm_pose {-0.815, -2.267, 2.812, -4.717, 0.159, -0.01};
-
-  std::cout << "Result arm pose: " << std::endl;
-  std::cout << "  Joint1: " << result_arm_pose.theta1 << std::endl;
-  std::cout << "  Joint2: " << result_arm_pose.theta2 << std::endl;
-  std::cout << "  Joint3: " << result_arm_pose.theta3 << std::endl;
-  std::cout << "  Joint4: " << result_arm_pose.theta4 << std::endl;
-  std::cout << "  Joint5: " << result_arm_pose.theta5 << std::endl;
-  std::cout << "  Joint6: " << result_arm_pose.theta6 << std::endl;
 
   ASSERT_NEAR(result_arm_pose.theta1, expected_arm_pose.theta1, 0.1);
   ASSERT_NEAR(result_arm_pose.theta2, expected_arm_pose.theta2, 0.1);
