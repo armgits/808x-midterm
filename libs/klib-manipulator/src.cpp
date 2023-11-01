@@ -65,14 +65,18 @@ void Manipulator::set_dh_params(const double dhArray[6][4]) {
  *
  * @return klib::ArmPose6R Struct representing current joint angles
  */
-klib::ArmPose6R Manipulator::get_joint_angles() { return robot_joint_angles_; }
+klib::ArmPose6R Manipulator::get_joint_angles() {
+  return robot_joint_angles_;
+} // cppcheck-suppress unusedFunction
 
 /**
  * @brief Method definition for get_tcp_position
  *
  * @return klib::Pose Struct representing current tcp position
  */
-klib::Pose Manipulator::get_tcp_position() { return robot_tcp_pose_; }
+klib::Pose Manipulator::get_tcp_position() {
+  return robot_tcp_pose_;
+} // cppcheck-suppress unusedFunction
 
 /**
  * @brief Method definition for get_dh_params
