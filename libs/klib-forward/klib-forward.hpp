@@ -12,12 +12,13 @@
 
 #pragma once
 
-#include <vector>
-#include <utility>
+#include <Eigen/Dense>
 #include <iostream>
+#include <utility>
+#include <vector>
+
 #include "klib-datatypes.hpp"
 #include "klib-manipulator.hpp"
-#include <Eigen/Dense>
 
 /**
  * @brief Class for computing forward kinematics of an articulated arm
@@ -31,8 +32,7 @@ class Forward {
    */
   Forward();
 
-  struct angle_constraint_
-  {
+  struct angle_constraint_ {
     double min_angle_;
     double max_angle_;
   };
@@ -45,9 +45,9 @@ class Forward {
    * @param tcp_position
    * @return std::vector<double>
    */
- klib::Pose forward(const std::vector<double>& joint_angles, Manipulator m_obj);
-
-
+  klib::Pose forward(const std::vector<double>& joint_angles,
+                     Manipulator m_obj);
 };
 
-Eigen::Matrix4d compute_DH_matrix(double a, double alpha, double d, double theta);
+Eigen::Matrix4d compute_DH_matrix(double a, double alpha, double d,
+                                  double theta);
