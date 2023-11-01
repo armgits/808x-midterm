@@ -13,6 +13,7 @@ ENPM808X - Mudit Singal, Abhishekh Reddy and Abhimanyu Saxena
 Inverse Kinematics solver software package for a 6 degrees of freedom articulated arm. See [Project Wiki](https://github.com/armgits/808x-midterm/wiki) to learn more.
 
 *Phase 1 video overview:* [Link](https://youtu.be/1Ef1qAf1lvI)<br>
+*Phase 2 video overview:* [Link](https://youtu.be/ybIaos_Ljsw)<br>
 *Sprint Planning Sheet:* [Link](https://docs.google.com/spreadsheets/d/1Rc0Pfr8mMGa4ZMYpjgk5P0cRsIy_P_9iZ-9lBFNqeOc/edit?usp=sharing)<br>
 *Sprint Plan and Review notes:*  [Link](https://docs.google.com/document/d/1s6W9IP_ZDYR-660YitoVuVJ2dlizAf8o30H2Hzoah2A/edit?usp=sharing)<br>
 
@@ -70,7 +71,7 @@ bear -- cmake --build build/
 
 ### Run the program
 
-TODO
+./build/app/klib-demo
 
 ### Test the program
 

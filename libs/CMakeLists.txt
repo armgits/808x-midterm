@@ -1,5 +1,5 @@
-
-add_subdirectory (Forward)
-add_subdirectory (Inverse)
-add_subdirectory (Manipulator)
+add_subdirectory (klib-datatypes)
+add_subdirectory (klib-forward)
+add_subdirectory (klib-inverse)
+add_subdirectory (klib-manipulator)
 
