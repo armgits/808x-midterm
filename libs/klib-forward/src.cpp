@@ -69,7 +69,7 @@ klib::Pose forward(const std::vector<double>& joint_angles) {
   d1 = m1_dh_params.joint1.d_length;
   a1 = m1_dh_params.joint1.a_length;
   alpha1 = m1_dh_params.joint1.alpha;
-  theta1 = m1_dh_params.joint1.offset;
+  theta1 = m1_dh_params.joint1.offset + joint_angles[0];
 
   // Compute the DH matrix and find the end effector transformation matrix after application of joint actuation and DH matrix
   dh_matrix = compute_DH_matrix(a1, alpha1, d1, theta1);
@@ -79,7 +79,7 @@ klib::Pose forward(const std::vector<double>& joint_angles) {
   d2 = m1_dh_params.joint2.d_length;
   a2 = m1_dh_params.joint2.a_length;
   alpha2 = m1_dh_params.joint2.alpha;
-  theta2 = m1_dh_params.joint2.offset;
+  theta2 = m1_dh_params.joint2.offset + joint_angles[1];
 
   dh_matrix = compute_DH_matrix(a2, alpha2, d2, theta2);
   tcp_transform = tcp_transform * dh_matrix;
@@ -88,7 +88,7 @@ klib::Pose forward(const std::vector<double>& joint_angles) {
   d3 = m1_dh_params.joint3.d_length;
   a3 = m1_dh_params.joint3.a_length;
   alpha3 = m1_dh_params.joint3.alpha;
-  theta3 = m1_dh_params.joint3.offset;
+  theta3 = m1_dh_params.joint3.offset + joint_angles[2];
 
   dh_matrix = compute_DH_matrix(a3, alpha3, d3, theta3);
   tcp_transform = tcp_transform * dh_matrix;
@@ -97,7 +97,7 @@ klib::Pose forward(const std::vector<double>& joint_angles) {
   d4 = m1_dh_params.joint4.d_length;
   a4 = m1_dh_params.joint4.a_length;
   alpha4 = m1_dh_params.joint4.alpha;
-  theta4 = m1_dh_params.joint4.offset;
+  theta4 = m1_dh_params.joint4.offset + joint_angles[3];
 
   dh_matrix = compute_DH_matrix(a4, alpha4, d4, theta4);
   tcp_transform = tcp_transform * dh_matrix;
@@ -106,7 +106,7 @@ klib::Pose forward(const std::vector<double>& joint_angles) {
   d5 = m1_dh_params.joint5.d_length;
   a5 = m1_dh_params.joint5.a_length;
   alpha5 = m1_dh_params.joint5.alpha;
-  theta5 = m1_dh_params.joint5.offset;
+  theta5 = m1_dh_params.joint5.offset + joint_angles[4];
 
   dh_matrix = compute_DH_matrix(a5, alpha5, d5, theta5);
   tcp_transform = tcp_transform * dh_matrix;
@@ -115,7 +115,7 @@ klib::Pose forward(const std::vector<double>& joint_angles) {
   d6 = m1_dh_params.joint6.d_length;
   a6 = m1_dh_params.joint6.a_length;
   alpha6 = m1_dh_params.joint6.alpha;
-  theta6 = m1_dh_params.joint6.offset;
+  theta6 = m1_dh_params.joint6.offset + joint_angles[5];
 
   // Compute the final end effector transformation matrix after application of joint actuation and DH matrix
   dh_matrix = compute_DH_matrix(a6, alpha6, d6, theta6);
