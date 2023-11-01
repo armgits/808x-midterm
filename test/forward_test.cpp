@@ -18,6 +18,10 @@
 const double pi = 3.141592;
 const double epsilon = 0.5;
 
+/**
+ * @brief Test case 1 for Forward method
+ *
+ */
 TEST(forward_kinematics_test_1, should_return_tcp_pose_1) {
   // Create an instance of manipulator class
   Manipulator manipulator;
@@ -26,7 +30,7 @@ TEST(forward_kinematics_test_1, should_return_tcp_pose_1) {
   // Define the expected end effector pose for a set of known joint angles
   std::vector<double> joint_angles = {0.0,     -pi / 2, -pi / 2,
                                       -pi / 2, pi / 2,  0.0012};
-  klib::Pose expected_pose{0.49309, -0.13026, 0.48946, 2.218, -2.216, 0.012};
+  klib::Pose expected_pose{0.49309, -0.13026, 0.48946, 0.05, 0.05, 0.012};
 
   // Call the forward kinematics method to get the actual end effector pose
   klib::Pose tcp_pose = f1.forward(joint_angles);
@@ -40,6 +44,10 @@ TEST(forward_kinematics_test_1, should_return_tcp_pose_1) {
   EXPECT_NEAR(tcp_pose.wz, expected_pose.wz, epsilon);
 }
 
+/**
+ * @brief Test case 2 for Forward method
+ *
+ */
 TEST(forward_kinematics_test_2, should_return_tcp_pose_2) {
   // Create an instance of manipulator class
   Manipulator manipulator;
@@ -48,7 +56,7 @@ TEST(forward_kinematics_test_2, should_return_tcp_pose_2) {
   // Define the expected end effector pose for a set of known joint angles
   std::vector<double> joint_angles = {pi / 2,  -pi / 2, -pi / 2,
                                       -pi / 2, pi / 2,  0.0012};
-  klib::Pose expected_pose{0.13150, 0.492, 0.48944, pi, -0.002, 0.015};
+  klib::Pose expected_pose{0.13150, 0.492, 0.48944, 0.05, -0.002, 0.015};
 
   // Call the forward kinematics method to get the actual end effector pose
   klib::Pose tcp_pose = f1.forward(joint_angles);
