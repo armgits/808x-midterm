@@ -16,6 +16,7 @@
 #include <utility>
 #include <iostream>
 #include "klib-datatypes.hpp"
+#include "klib-manipulator.hpp"
 #include <Eigen/Dense>
 
 /**
@@ -46,111 +47,7 @@ class Forward {
    */
  klib::Pose forward(const std::vector<double>& joint_angles);
 
-  /**
-   * @brief Method to obtain input angles given to forward kinematics solver
-   *
-   * @return std::vector<double>
-   */
-  std::vector<double> get_input_angles();
 
-  /**
-   * @brief Method to set the input joint angles to forward kinematics solver
-   *
-   * @param input_angles
-   */
-  void set_input_angles(const std::vector<double>& input_angles);
-
-  /**
-   * @brief Method to obtain the end-effector position calculated by forward
-   *        kinematics solver
-   *
-   * @return std::vector<double>
-   */
-  std::vector<double> get_tcp_pose();
-
-  /**
-   * @brief Method to manually override end-effector position computed from
-   *        joint angles
-   *
-   * @param tcp_position
-   */
-  void set_tcp_position(const std::vector<double>& tcp_position);
-
-  /**
-   * @brief Obtains the constraints set to the end-effector coordinate computed
-   *        by the forward kinematics solver
-   *
-   * @return std::vector<double>
-   */
-  std::vector<double> get_coordinate_constraint();
-
-  /**
-   * @brief Sets the constraints for the end-effector coordinate computed by the
-   *        forward kinematics solver
-   *
-   * @param coordinate_constraint
-   */
-  void set_coordinate_constraint(
-      const std::vector<double>& coordinate_constraint);
-
-  /**
-   * @brief Obtains the DH parameters set for the forward kinematics solver
-   *
-   * @return double**
-   */
-  double **get_dh_params();
-
-  /**
-   * @brief Obtains the constraints set for the joint angles
-   *
-   * @return std::vector<double>
-   */
-  std::vector<angle_constraint_> get_angle_constraint();
-
-  /**
-   * @brief Set the angle constraint object
-   *
-   * @param angle_constraint
-   */
-  void set_angle_constraint(const std::vector<angle_constraint_>& angle_constraint);
-
- private:
-  /**
-   * @brief Stores the input joint angles of the arm
-   *
-   */
-  std::vector<double> input_angles_;
-
-  /**
-   * @brief Stores the output joint angles of the arm
-   *
-   */
-  std::vector<double> output_angles_;
-
-  /**
-   * @brief Stores the end-effector position and orientation of the arm
-   *
-   */
-  std::vector<double> robot_tcp_pose_;
-
-  /**
-   * @brief Stores the constraints set for the end-effector coordinates
-   *
-   */
-  std::vector<double> coordinate_constraints_;
-
-  /**
-   * @brief Stores the constraints for minimum and maximum angles that each joint can have. Index 0 corresponds to the first joint and so on.
-   *
-   */
-
-  std::vector<angle_constraint_> angle_constraints_;
-
-  /**
-   * @brief Stores the DH Parameters that describes the arm for forward kinematics
-   *
-   */
-  double **dh_params_;
 };
 
 Eigen::Matrix4d compute_DH_matrix(double a, double alpha, double d, double theta);

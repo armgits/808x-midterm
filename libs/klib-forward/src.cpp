@@ -10,9 +10,7 @@
  *
  */
 
-#include "klib-datatypes.hpp"
 #include "klib-forward.hpp"
-#include "klib-manipulator.hpp"
 #include <list>
 
 /**
@@ -127,17 +125,22 @@ klib::Pose forward(const std::vector<double>& joint_angles) {
   return fwd_tcp_pose;
 }
 
-void Forward::set_angle_constraint(const std::vector<Forward::angle_constraint_> &angle_constraint)
+int main()
 {
-  // check validity of each joint angle constraint
-  for(int i = 0; i < angle_constraint.size(); i++)
-  {
-    if(angle_constraint[i].min_angle_ > angle_constraint[i].max_angle_)
-    {
-      std::cout<< "Angle constraint invalid. Min angle should be less than max angle" << std::endl;
-      return;
-    }
-  }
-  angle_constraints_ = angle_constraint;
-  std::cout<< "Angle constraints set successfully!" << std::endl;
+  Forward mani_f1;
+  Manipulator m1;
+
+  double pi = 3.14159265359;
+  double dh_param_UR5e[6][4] = {
+    {0.1625, 0.0, 0.5 * pi, 0.0},  {0.0, -0.425, 0.0, 0.0},
+    {0.0, -0.3922, 0.0, 0.0},      {0.1333, 0.0, 0.5 * pi, 0.0},
+    {0.0997, 0.0, -0.5 * pi, 0.0}, {0.0996, 0.0, 0.0, 0.0}};
+
+  std::vector<double> demo_joint_angles = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+
+  m1.set_dh_params(dh_param_UR5e);
+
+  mani_f1.forward(demo_joint_angles);
+
+  return 0;
 }
