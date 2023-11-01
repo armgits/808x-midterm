@@ -10,38 +10,44 @@
  *
  */
 
-#include "klib-forward.hpp"
 #include <list>
 
+#include "klib-forward.hpp"
+
 /**
- * @brief Constructor for forward kinematics class. Initializes attributes to zero.
+ * @brief Constructor for forward kinematics class. Initializes attributes to
+ * zero.
  *
  */
 Forward::Forward() {}
 
-
-
-Eigen::Matrix4d compute_DH_matrix(double a, double alpha, double d, double theta) {
-    Eigen::Matrix4d dh_matrix;
-    dh_matrix << cos(theta), -sin(theta) * cos(alpha), sin(theta) * sin(alpha), a * cos(theta),
-                 sin(theta), cos(theta) * cos(alpha), -cos(theta) * sin(alpha), a * sin(theta),
-                 0, sin(alpha), cos(alpha), d,
-                 0, 0, 0, 1; // cppcheck-suppress constStatement
-    return dh_matrix;
+Eigen::Matrix4d compute_DH_matrix(double a, double alpha, double d,
+                                  double theta) {
+  Eigen::Matrix4d dh_matrix;
+  dh_matrix << cos(theta), -sin(theta) * cos(alpha), sin(theta) * sin(alpha),
+      a * cos(theta), sin(theta), cos(theta) * cos(alpha),
+      -cos(theta) * sin(alpha), a * sin(theta), 0, sin(alpha), cos(alpha), d, 0,
+      0, 0, 1;  // cppcheck-suppress constStatement
+  return dh_matrix;
 }
 
 /**
- * @brief Method to compute the forward kinematics of the arm for given joint angles. Implemented using custom datatypes of manipulator pose and Eigen library.
+ * @brief Method to compute the forward kinematics of the arm for given joint
+ * angles. Implemented using custom datatypes of manipulator pose and Eigen
+ * library.
  *
  * @param joint_angles
  * @return klib::Pose
  */
-klib::Pose Forward::forward(const std::vector<double>& joint_angles, Manipulator m_obj) {
-  // Instantiating Manipulator object, DH parameters object, and dh_matrix object for use in the function
+klib::Pose Forward::forward(const std::vector<double>& joint_angles,
+                            Manipulator m_obj) {
+  // Instantiating Manipulator object, DH parameters object, and dh_matrix
+  // object for use in the function
   klib::DHParameters6R m1_dh_params;
   Eigen::Matrix4d dh_matrix;
 
-  // The DH parameters initialization as variables for ease in code understanding
+  // The DH parameters initialization as variables for ease in code
+  // understanding
   float a1, d1, alpha1, theta1;
   float a2, d2, alpha2, theta2;
   float a3, d3, alpha3, theta3;
@@ -52,9 +58,11 @@ klib::Pose Forward::forward(const std::vector<double>& joint_angles, Manipulator
   // Pose of the tooltip as custom datatype klib::Pose
   klib::Pose fwd_tcp_pose;
 
-  // Checking joint angle size. Returns an error if the number of joint angles is not equal to 6 for 6-DOF manipulator.
+  // Checking joint angle size. Returns an error if the number of joint angles
+  // is not equal to 6 for 6-DOF manipulator.
   if (joint_angles.size() != 6) {
-    std::cerr << "Invalid number of joint angles. Expected 6 angles." << std::endl;
+    std::cerr << "Invalid number of joint angles. Expected 6 angles."
+              << std::endl;
     return klib::Pose();
   }
 
@@ -70,7 +78,8 @@ klib::Pose Forward::forward(const std::vector<double>& joint_angles, Manipulator
   alpha1 = m1_dh_params.joint1.alpha;
   theta1 = m1_dh_params.joint1.offset + joint_angles[0];
 
-  // Compute the DH matrix and find the end effector transformation matrix after application of joint actuation and DH matrix
+  // Compute the DH matrix and find the end effector transformation matrix after
+  // application of joint actuation and DH matrix
   dh_matrix = compute_DH_matrix(a1, alpha1, d1, theta1);
   tcp_transform = tcp_transform * dh_matrix;
 
@@ -116,18 +125,22 @@ klib::Pose Forward::forward(const std::vector<double>& joint_angles, Manipulator
   alpha6 = m1_dh_params.joint6.alpha;
   theta6 = m1_dh_params.joint6.offset + joint_angles[5];
 
-  // Compute the final end effector transformation matrix after application of joint actuation and DH matrix
+  // Compute the final end effector transformation matrix after application of
+  // joint actuation and DH matrix
   dh_matrix = compute_DH_matrix(a6, alpha6, d6, theta6);
   tcp_transform = tcp_transform * dh_matrix;
 
-  // Get the tool tip position and orientation from the calculated transformation matrix
+  // Get the tool tip position and orientation from the calculated
+  // transformation matrix
   Eigen::Vector3d fwd_tcp_position = tcp_transform.block<3, 1>(0, 3);
   Eigen::Quaterniond fwd_tcp_orientation(tcp_transform.block<3, 3>(0, 0));
 
   // Convert orientation to Euler angles
-  Eigen::Vector3d fwd_tcp_euler_angles = fwd_tcp_orientation.toRotationMatrix().eulerAngles(0, 1, 2);
+  Eigen::Vector3d fwd_tcp_euler_angles =
+      fwd_tcp_orientation.toRotationMatrix().eulerAngles(0, 1, 2);
 
-  // Assign the tool tip pose from the computed end effector position and euler angles and return it
+  // Assign the tool tip pose from the computed end effector position and euler
+  // angles and return it
   fwd_tcp_pose.x = fwd_tcp_position[0];
   fwd_tcp_pose.y = fwd_tcp_position[1];
   fwd_tcp_pose.z = fwd_tcp_position[2];
