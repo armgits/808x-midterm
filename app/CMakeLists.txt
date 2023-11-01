@@ -9,15 +9,16 @@ add_executable(shell-app
 # dependent libraries, they are automatically included.
 target_include_directories(shell-app PUBLIC
   # list inclue directories:
-  ${CMAKE_SOURCE_DIR}/include
+  # ${CMAKE_SOURCE_DIR}/include
 )
 
 # Any dependent libraires needed to build this target.
 target_link_libraries(shell-app PUBLIC
   # list of libraries
-  Forward
-  Inverse
-  Manipulator
+  klib-datatypes
+  klib-forward
+  klib-inverse
+  klib-manipulator
   )
 
 target_link_options(shell-app PUBLIC
